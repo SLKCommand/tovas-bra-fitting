@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tova's Bra Fitting - Expert Virtual Bra Consultations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fafafa;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header/Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f5f0eb 0%, #e8ddd3 100%);
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .logo {
+            max-width: 500px;
+            margin: 0 auto 30px;
+        }
+        
+        .logo img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .hero h1 {
+            font-size: 2.5em;
+            color: #3c3c3c;
+            margin-bottom: 15px;
+        }
+        
+        .hero .tagline {
+            font-size: 1.3em;
+            color: #967a64;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+        
+        .hero p {
+            font-size: 1.2em;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #555;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #967a64;
+            color: white;
+            padding: 18px 40px;
+            font-size: 1.2em;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin: 10px;
+        }
+        
+        .cta-button:hover {
+            background-color: #7a6150;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 60px 20px;
+            background-color: white;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .about-image img {
+            max-width: 400px;
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about h2 {
+            font-size: 2.2em;
+            color: #3c3c3c;
+            margin-bottom: 25px;
+        }
+        
+        .about p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 60px 20px;
+            background-color: #f5f0eb;
+        }
+        
+        .how-it-works h2 {
+            text-align: center;
+            font-size: 2.2em;
+            color: #3c3c3c;
+            margin-bottom: 50px;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .step {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background-color: #967a64;
+            color: white;
+            border-radius: 50%;
+            line-height: 60px;
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .step h3 {
+            font-size: 1.4em;
+            color: #3c3c3c;
+            margin-bottom: 15px;
+        }
+        
+        .step p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 60px 20px;
+            background-color: white;
+        }
+        
+        .pricing h2 {
+            text-align: center;
+            font-size: 2.2em;
+            color: #3c3c3c;
+            margin-bottom: 50px;
+        }
+        
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            background: linear-gradient(135deg, #f5f0eb 0%, #e8ddd3 100%);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .pricing-card.featured {
+            background: linear-gradient(135deg, #967a64 0%, #7a6150 100%);
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .pricing-card.featured h3 {
+            color: white;
+        }
+        
+        .price {
+            font-size: 3em;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        
+        .pricing-card.featured .price {
+            color: white;
+        }
+        
+        .pricing-card ul {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .pricing-card li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .pricing-card.featured li {
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .pricing-card li:before {
+            content: "✓ ";
+            color: #967a64;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .pricing-card.featured li:before {
+            color: #fff;
+        }
+        
+        .book-button {
+            display: inline-block;
+            background-color: white;
+            color: #967a64;
+            padding: 15px 35px;
+            font-size: 1.1em;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        
+        .pricing-card.featured .book-button {
+            background-color: white;
+            color: #967a64;
+        }
+        
+        .book-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 60px 20px;
+            background-color: #f5f0eb;
+        }
+        
+        .testimonials h2 {
+            text-align: center;
+            font-size: 2.2em;
+            color: #3c3c3c;
+            margin-bottom: 50px;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial p {
+            font-size: 1.1em;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial .author {
+            text-align: right;
+            color: #967a64;
+            font-weight: bold;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #3c3c3c;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        footer a {
+            color: #967a64;
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="logo">
+                <img src="tovas_logo_option1.png" alt="Tova's Bra Fitting Logo">
+            </div>
+            <p>Expert virtual bra fitting from the comfort of your home.<br>
+            Over 60 years of experience, now available online.</p>
+            <a href="#pricing" class="cta-button">Book Your Fitting</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="tova-photo.png" alt="Tova - Expert Bra Fitter" style="max-width: 400px; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                </div>
+                <div class="about-text">
+                    <h2>Meet Tova</h2>
+                    <p>Tova learned the art of bra fitting from her mother in Haifa, starting at just 16 years old. She went on to build Shalva, a successful lingerie business across Israel with locations in Jerusalem, Tel Aviv, and Bnei Brak.</p>
+                    
+                    <p>In 2006, Tova brought her expertise to Brooklyn, where she's been serving the Boro Park community for nearly 20 years.</p>
+                    
+                    <p>With over 60 years of experience, Tova is now launching her virtual fitting service—bringing generational expertise to women everywhere.</p>
+                    
+                    <p><strong>When you book with Tova, you're getting decades of hands-on experience from someone who built one of Israel's most successful lingerie businesses from the ground up.</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Book Your Session</h3>
+                    <p>Choose your package and schedule a time that works for you. You'll receive a Zoom link via email.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Virtual Consultation</h3>
+                    <p>Tova guides you through measurements and discusses your needs, preferences, and fit concerns.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Receive Your Bras</h3>
+                    <p>Tova ships you carefully selected bras to try at home. Keep what fits, return what doesn't.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Follow-Up Fitting</h3>
+                    <p>Quick Zoom call to assess the fit and make any adjustments. You'll leave with bras that actually fit!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>Choose Your Package</h2>
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3>Starter Package</h3>
+                    <div class="price">$95</div>
+                    <ul>
+                        <li>30-minute virtual fitting consultation</li>
+                        <li>One professionally selected bra shipped to you</li>
+                        <li>Free exchange if it doesn't fit</li>
+                        <li>Expert guidance on sizing and style</li>
+                    </ul>
+                    <p style="margin-top: 20px; color: #666; font-size: 0.9em;">Perfect if you want to try Tova's expertise with minimal commitment</p>
+                    <a href="#" class="book-button">Book Starter</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <h3>Complete Fitting</h3>
+                    <div class="price">$189</div>
+                    <ul>
+                        <li>30-minute initial virtual consultation</li>
+                        <li>3-4 professionally selected bras shipped to try</li>
+                        <li>15-minute follow-up fitting session</li>
+                        <li>Free return shipping for unwanted items</li>
+                        <li>Personalized style recommendations</li>
+                    </ul>
+                    <p style="margin-top: 20px; font-size: 0.9em;">⭐ MOST POPULAR - Best value and complete experience</p>
+                    <a href="#" class="book-button">Book Complete</a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px; padding: 30px; background: #f5f0eb; border-radius: 10px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                <h3 style="margin-bottom: 15px;">Need More?</h3>
+                <p style="font-size: 1.1em;">After your Starter Package, add 2 more bras for just $80 (that's $40/bra)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Women Are Saying</h2>
+            <div class="testimonial">
+                <p>"After years of wearing the wrong size, Tova helped me find bras that actually fit. The virtual consultation was so easy and comfortable - I felt like she was right there with me!"</p>
+                <div class="author">— Sarah M., Manhattan</div>
+            </div>
+            <div class="testimonial">
+                <p>"I've been going to Tova in Boro Park for years. When she started offering virtual fittings, I recommended it to my sister in California. Now she finally has bras that fit properly!"</p>
+                <div class="author">— Rachel G., Brooklyn</div>
+            </div>
+            <div class="testimonial">
+                <p>"The expertise is incredible. Tova knew exactly what I needed just from our conversation. All three bras fit perfectly. I'm telling all my friends about this!"</p>
+                <div class="author">— Michelle L., New Jersey</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="hero">
+        <div class="container">
+            <h2 style="margin-bottom: 20px;">Ready to Find Bras That Actually Fit?</h2>
+            <p style="max-width: 600px; margin: 0 auto 30px;">Stop settling for uncomfortable bras. Book your virtual fitting with Tova today.</p>
+            <a href="#pricing" class="cta-button">Book Your Fitting Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Tova's Bra Fitting. All rights reserved.</p>
+            <p style="margin-top: 10px;">Questions? Email: <a href="mailto:tovasbrafitting@gmail.com">tovasbrafitting@gmail.com</a></p>
+            <p style="margin-top: 20px; font-size: 0.9em;">Serving women worldwide with 60+ years of expertise</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
